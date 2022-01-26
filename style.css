@@ -48,6 +48,10 @@ header h1 {
   background-position: center;
 }
 
+#grid .disabled {
+  cursor: not-allowed;
+}
+
 .text-white {
   color: white;
   margin-top: 20px;

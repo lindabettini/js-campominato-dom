@@ -85,17 +85,26 @@ const play = () => {
         showBombs(bombs); 
     }
 
+    // ° Rimuovo tutti gli event listener da una cella 
+    const disableCell = cell => {
+        const clone = cell.cloneNode();
+        clone.innerText = cell.innerText; 
+        clone.classList.add('disabled'); 
+        cell.parentNode.replaceChild(clone, cell); 
+        return clone;
+    }
+
     // ° Gestico il click
     const onCellClick = (clickedCell, bombs, number) => {
         // ^ Impedisce fututi altri click su questa cella 
-        clickedCell.removeEventListener('click', onCellClick); 
+        const disabledCell = disableCell(clickedCell);
 
         // ^ Controllo se è una bomba 
         if (bombs.includes(number)) {
         // ^ Game over di Sconfitta
             gameOver (bombs, attempts, true);
         }  else {
-            clickedCell.classList.add('safe'); 
+            disabledCell.classList.add('safe'); 
             attempts++; 
         // ^ Game over di Vittoria
         if (attempts === maxAttempts) {
@@ -108,10 +117,11 @@ const play = () => {
     const showBombs = (bombs) => {
         const cells = document.querySelectorAll('.cell'); 
         for (let i = 0; i < cells.length; i++) {
-            const cell = cells[i]; 
-            const cellNumber = parseInt(cell.innerText); 
+            const cell = cells[i];
+            const disabledCell = disableCell(cell);
+            const cellNumber = parseInt(disabledCell.innerText); 
             
-            if (bombs.includes(cellNumber)) cell.classList.add('bomb');
+            if (bombs.includes(cellNumber)) disabledCell.classList.add('bomb');
         }
     }
 
