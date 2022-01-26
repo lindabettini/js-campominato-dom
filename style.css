@@ -15,7 +15,7 @@ header {
 
 header h1 {
   font-family: "Rubik Beastly", cursive;
-  color: rgb(255, 81, 0);
+  color: greenyellow;
   font-size: 50px;
 }
 
@@ -31,21 +31,29 @@ header h1 {
 }
 
 #grid .cell {
-  border: 2px solid white;
+  border: 2px solid grey;
   cursor: pointer;
   color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
 #grid .safe {
-  background-color: green;
+  background-color: greenyellow;
+  color: black;
 }
 
 #grid .bomb {
-  background-color: rgb(255, 81, 0);
+  background-color: ;
   background-image: url(bomb-solid.svg);
-  background-size: 70%;
+  filter: invert(100%);
+  background-size: 80%;
   background-repeat: no-repeat;
   background-position: center;
+  font-size: 5px;
+  color: black;
 }
 
 #grid .disabled {
