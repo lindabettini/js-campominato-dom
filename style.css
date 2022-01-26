@@ -35,3 +35,20 @@ header h1 {
   cursor: pointer;
   color: white;
 }
+
+#grid .safe {
+  background-color: green;
+}
+
+#grid .bomb {
+  background-color: rgb(255, 81, 0);
+  background-image: url(bomb-solid.svg);
+  background-size: 70%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.text-white {
+  color: white;
+  margin-top: 20px;
+}

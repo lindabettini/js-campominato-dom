@@ -74,8 +74,9 @@ const play = () => {
         messageElement.className = 'message';
 
         // ^ Decido il testo 
-        const messageText = hasLost ? 'Peccato, hai perso! Punteggio ${points}' : 'Hai vinto! Gioca ancora...';
+        const messageText = hasLost ? `Peccato, hai perso! Punteggio ${points}` : 'Hai vinto! Gioca ancora...';
         messageElement.innerText = messageText; 
+        messageElement.classList.add('text-white');
 
         // ^ Mostro l'elemento
         grid.appendChild(messageElement); 
@@ -124,7 +125,6 @@ const play = () => {
             grid.appendChild(cell);
         }
     }
-}
 
 // // -------------------------------------
 // //     ESECUZIONE VERA E PROPRIA 
@@ -133,6 +133,10 @@ const play = () => {
 const bombs = generateBombs(TOTAL_BOMBS, totalCells);
 
 generateGrid(totalCells, cellsPerRow, bombs);
+
+}
+
+
 
 // ° FASE INIZIALE 
 
